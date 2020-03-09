@@ -1,0 +1,24 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                          controllers.HomeController.index
+GET     /hello                     controllers.HomeController.hello
+GET    /bookshop                   controllers.Application.index
+GET    /bookshop/book/:id/          controllers.Application.getBook(id:String)
+POST /bookshop/book/save/comment/  controllers.Application.saveComment(request:Request)
+GET /bookshop/book/search/         controllers.Application.searchByTitle(keyword:String)
+GET /bookshop/book/echo            controllers.Application.echoService
+GET    /bookshop/book/:id/page/$page<[0-9]+>/ controllers.Application.fetchBookpage(id:String, page:Integer)
+GET /bookshop/example/largeresponse controllers.Application.processLargeResponse()
+GET /bookshop/authors/  controllers.Application.authors(limit: Integer = 10)
+GET /bookshop/showcomment/  controllers.Application.showComment(userid ?= null)
+
+POST /greeting controllers.Application.acknowledgeGreeting(request:Request)
+POST /greeting/xml controllers.Application.acknowledgeGreetingXML(request:Request)
+POST /greeting/xml/jaxb controllers.Application.acknowledgeGreetingXMLJaxbVersion(request:Request)
+GET /bookshop/contact controllers.Application.contact()
+GET /bookshop/book/top controllers.Application.topThreeBooks()
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

@@ -1,0 +1,9 @@
+@(booklist: List[models.Book])
+
+@main("Book List") {
+
+    @for(book <- booklist){
+        <div>@book.getTitle()</div>
+        <div>@book.getAuthor()</div>
+    }
+}
